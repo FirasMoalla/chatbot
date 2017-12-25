@@ -1,4 +1,4 @@
-# Getting started with PHP on IBM Cloud
+# Getting started with PHP and Watson Chatbot on IBM Cloud
 
 This lab will take you through the steps to get started with a simple PHP application for a Chatbot in IBM Cloud and help you:
 - Set up a development environment
