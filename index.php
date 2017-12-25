@@ -23,7 +23,7 @@ require 'vendor/autoload.php';
 require_once('./Cloudant.php');
 $app = new \Slim\Slim();
 
-echo "hai";
+echo "ha";
 
 $app->get('/', function () {
   global $app;
