@@ -1,26 +1,17 @@
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:app_name: data-hd-keyref="app_name"}
+# Watson Chatbot Lab
 
-# Watson ChatBot Lab
+In this lab, we will build a an application for a Chatbot and deploy it to IBM Cloud. The is in two parts. First, we will deploy a PHP Chatbot application on IBM Cloud lab. Then, we will implement a chatbot dialog. is in two parts. To get started, follow this step-by-step lab.
 
-In this lab, we will deploy a Hello World Chatbot application on IBM Cloud you deployed. The lab is in two parts.  First, Second. To get started, follow this step-by-step guide. Or, <a class="xref" href="http://bluemix.net" target="_blank" title="(Download sample code)"><img class="hidden" src="../../images/btn_starter-code.svg" alt="Download application code" />download the sample code</a> and explore on your own.
-
-By following the Watson Chatbot tutorial, you'll set up a development environment, deploy an app locally and on {{site.data.keyword.Bluemix}}, and integrate a database service in your app.
+By following the Watson Chatbot tutorial, you'll set up a development environment, deploy an app locally and on IBM Cloud, and integrate a conversation service for the Chabot in your app.
 
 ## Before you begin
 
 You'll need the following:
-* [{{site.data.keyword.Bluemix_notm}} account](https://console.ng.bluemix.net/registration/)
-* [Bluemix CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/cloudfoundry/cli#downloads){: new_window}
-* [Git ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://git-scm.com/downloads){: new_window}
-* [PHP ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://php.net/downloads.php){: new_window}
-* [Composer ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://getcomposer.org/download/){: new_window}
+* [IBM Cloud Account](https://console.ng.bluemix.net/registration/)
+* [Bluemix CLI Installation](https://console.bluemix.net/docs/cli/reference/bluemix_cli/all_versions.html#ibm-cloud-cli-installer-all-versions)
+* [Git](https://git-scm.com/downloads)
+* [PHP](http://php.net/downloads.php)
+* [PHP Composer](https://getcomposer.org/download/)
 
 
 ## Step 1 Deploy a PHP app
