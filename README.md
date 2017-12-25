@@ -1,12 +1,14 @@
 # Getting started with PHP on IBM Cloud
 
-This guide will take you through the steps to get started with a simple PHP application in IBM Cloud and help you:
+This lab will take you through the steps to get started with a simple PHP application for a Chatbot in IBM Cloud and help you:
 - Set up a development environment
 - Download sample code
 - Run the application locally
 - Run the application on IBM Cloud Cloud Foundry
-- Add a IBM Cloud Database service
-- Connect to the database from your local application
+- Add a IBM Cloud Conversation service for a Chatbot
+- Implement a Chatbot
+
+This lab is in two parts. In the first part, we will build a PHP application for a chatbot. In the second part, we will implement the Chatbot.
 
 ## Prerequisites
 
@@ -16,6 +18,8 @@ You'll need the following:
 * [Git](https://git-scm.com/downloads)
 * [PHP](http://php.net/downloads.php)
 * [Composer](https://getcomposer.org/download/)
+
+# Part 1: Build a PHP Chatbot app on IBM Cloud
 
 ## 1. Build & Deploy a PHP app
 
