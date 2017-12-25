@@ -21,23 +21,15 @@ You'll need the following:
 
 # Part 1: Build a PHP Chatbot app on IBM Cloud
 
-## 1. Build & Deploy a PHP app
+## 1. Clone the sample PHP app
 
-Log into your IBM Cloud account and navigate to the `Cloud Foundary Apps` by clicking here.
-
-Click on `PHP`.
-
-Write a unique application name in the `App name` field then click on `Create` to build and deploy the PHP application on IBM Cloud.
-
-## 2. Clone the sample app
-
-Now you're ready to start working with the PHP application. Clone the following repo and change your directory to where the sample application is located.
+Clone the following repo and change your directory to where the sample application is located.
   ```
 git clone https://github.com/FirasMoalla/chatbot-php
 cd chatbot-php
   ```
 
-## 3. Run the app locally
+## 2. Run the app locally
 
 Install dependencies
 ```
@@ -51,7 +43,7 @@ php -S localhost:8000
 
 View your app at: http://localhost:8000
 
-## 4. Prepare the app for deployment
+## 3. Prepare the app for deployment
 
 To deploy to IBM Cloud, we can set up a manifest.yml file. The manifest.yml includes basic information about your application, such as the name, how much memory to allocate for each instance and the route. We've provided a sample manifest.yml file in the `php-chatbot` directory.
 
@@ -72,17 +64,8 @@ You can use the Cloud Foundry CLI to deploy applications.
 
 Choose your API endpoint
    ```
-bx api <API-endpoint>
+bx api https://api.eu-gb.bluemix.net
    ```
-
-Replace the *API-endpoint* in the command with an API endpoint from the following list.
-
-|URL                             |Region          |
-|:-------------------------------|:---------------|
-| https://api.ng.bluemix.net     | US South       |
-| https://api.eu-gb.bluemix.net  | United Kingdom |
-| https://api.eu-de.bluemix.net  | Germany        |
-| https://api.au-syd.bluemix.net | Sydney         |
 
 Login to your IBM Cloud account
 
@@ -107,7 +90,7 @@ command to view your apps status and see the URL.
 
 Next, we'll add a Conversation service (Chatbot) to this application and set up the application so that it can run locally and on IBM Cloud.
 
-1. Log in to IBM Cloud in your Browser. Click on `Catalog` on the right.
+1. Log in to IBM Cloud in your Browser. Click on `Catalog` on the top right.
 2. Click on `Connections` then `Connect new`.
 3. Click on `Watson` on the left menu and then click on `Conversation`.
 4. From the top left menu, browse to `Dashboard`. Select your PHP application by clicking on its name in the `Name` column.
