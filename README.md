@@ -39,11 +39,9 @@ Now you're ready to start working with the app. Clone the repo and change the di
   ```
 git clone https://github.com/IBM-Bluemix/get-started-php
   ```
-  {: pre}
   ```
 cd get-started-php
   ```
-  {: pre}
 
 ## Step 2: Run the app locally
 
@@ -51,23 +49,19 @@ Install dependencies
 ```
 php composer.phar install
 ```
-{: pre}
 
 Run the app
   ```
 php -S localhost:8000
   ```
-  {: pre}
 
 View your app at: http://localhost:8000
 
 ## Step 3: Prepare the app for deployment
-{: #prepare}
 
 To deploy to {{site.data.keyword.Bluemix_notm}}, it can be helpful to set up a manifest.yml file. The manifest.yml includes basic information about your app, such as the name, how much memory to allocate for each instance and the route. We've provided a sample manifest.yml file in the `get-started-php` directory.
 
-Open the manifest.yml file, and change the `name` from `GetStartedPHP` to your app name, <var class="keyword varname" data-hd-keyref="app_name">app_name</var>.
-{: download}
+Open the manifest.yml file, and change the `name` from `GetStartedPHP` to your PHP app name.
 
   ```
  applications:
@@ -75,19 +69,16 @@ Open the manifest.yml file, and change the `name` from `GetStartedPHP` to your a
    random-route: true
    memory: 128M
   ```
-  {: codeblock}
 
 In this manifest.yml file, **random-route: true** generates a random route for your app to prevent your route from colliding with others.  If you choose to, you can replace **random-route: true** with **host: myChosenHostName**, supplying a host name of your choice. [Learn more...](/docs/manageapps/depapps.html#appmanifest)
-{: tip}
 
 ## Step 4: Deploy the app
- {: #deploy}
 
 You can use the Cloud Foundry CLI to deploy apps.
 
-Choose your API endpoint
+First, choose your API endpoint
    ```
-cf api <API-endpoint>
+bx api <API-endpoint>
    ```
    {: pre}
 
@@ -100,20 +91,18 @@ Replace the *API-endpoint* in the command with an API endpoint from the followin
 | United Kingdom region | London, England | api.eu-gb.bluemix.net |
 | Sydney region | Sydney, Australia | api.au-syd.bluemix.net |
 | Germany region | Frankfurt, Germany | api.eu-de.bluemix.net |
-{: caption="Table 1. {{site.data.keyword.cloud_notm}} region list" caption-side="top"}
 
-Log in to your {{site.data.keyword.Bluemix_notm}} account
+
+Then, log in to your IBM Cloud account
 
    ```
-cf login
+bx login
    ```
-   {: pre}
 
-If you cannot log in using the `cf login` or `bx login` commands because you have a federated user ID, use either the `cf login --sso` or `bx login --sso` commands to log in with your single sign on ID. See [Logging in with a federated ID](https://console.bluemix.net/docs/cli/login_federated_id.html#federated_id) to learn more.
 
- From within the *get-started-php* directory push your app to {{site.data.keyword.Bluemix_notm}}
+ From within the *get-started-php* directory push your app to IBM Cloud
    ```
-cf push
+bx app push
    ```
    {: pre}
 
@@ -121,59 +110,28 @@ cf push
 
  When deployment completes you should a message indicating that your app is running.  View your app at the URL listed in the output of the push command.  You can also issue the
   ```
-cf apps
+bx app list
   ```
-  {: pre}
-  command to view your apps status and see the URL.
+  
+ command to view your apps status and see the URL.
 
-## Step 5: Add a database
-{: #add_database}
+## Step 5: Create a Chatbot service
 
-Next, we'll add a NoSQL database to this application and set up the application so that it can run locally and on {{site.data.keyword.Bluemix_notm}}.
+Next, we'll add a Conversation service (Chatbot) to this application and set up the application so that it can run locally and on IBM Cloud.
 
-1. Log in to {{site.data.keyword.Bluemix_notm}} in your Browser. Browse to the `Dashboard`. Select your application by clicking on its name in the `Name` column.
-2. Click on `Connections` then `Create connection`.
-3. In the `Data & Analytics` section, select `Cloudant NoSQL DB` and `Create` the service.
-4. Select `Restage` when prompted. {{site.data.keyword.Bluemix_notm}} will restart your application and provide the database credentials to your application using the `VCAP_SERVICES` environment variable. This environment variable is only available to the application when it is running on {{site.data.keyword.Bluemix_notm}}.
+1. Log in to IBM Cloud in your Browser. Click on `Catalog` on the right.
+2. Click on `Watson` and then on `Conversation`.
+3. Click on `Create` to deply the `Conversation` services.
+4. From the top left menu, browse to `Dashboard`. Select your PHP applcication by clicking on its name in the `Name` column.
+5. Click on `Connections` then `Create connection`.
+6. Select the `Converstation` service.
+4. Select `Restage` when prompted. IBM Cloud will restart your application and provide the `Converstation` credentials to your PHP application using the `VCAP_SERVICES` environment variable. This environment variable is only available to the application when it is running on IBM Cloud.
 
 Environment variables enable you to separate deployment settings from your source code. For example, instead of hardcoding a database password, you can store this in an environment variable which you reference in your source code. [Learn more...](/docs/manageapps/depapps.html#app_env)
-{: tip}
 
-## Step 6: Use the database
-{: #use_database}
-We're now going to update your local code to point to this database. We'll create a json file that will store the credentials for the services the application will use. This file will get used ONLY when the application is running locally. When running in {{site.data.keyword.Bluemix_notm}}, the credentials will be read from the VCAP_SERVICES environment variable.
 
-1. Create a file called `.env` in the `get-started-php` directory with the following content:
-  ```
-  CLOUDANT_HOST=
-  CLOUDANT_USERNAME=
-  CLOUDANT_PASSWORD=
-  ```
+# Resources
 
-2. Back in the {{site.data.keyword.Bluemix_notm}} UI, select your App -> Connections -> Cloudant -> View Credentials
-
-3. Copy and paste values of the `CLOUDANT_HOST`, `CLOUDANT_USERNAME` and `CLOUDANT_PASSWORD` fields into the `.env` file and save the changes.  The result will be something like:
-  ```
-  CLOUDANT_HOST=abc...yz.cloudant.com
-  CLOUDANT_USERNAME=abc...yz
-  CLOUDANT_PASSWORD=445d...d1a
-  ```
-
-4. Run your application locally.
-  ```
-php -S localhost:8000
-  ```
-  {: pre}
-
-  View your app at: http://localhost:8000. Any names you enter into the app will now get added to the database.
-
-  Your local app and  the {{site.data.keyword.Bluemix_notm}} app are sharing the database.  View your {{site.data.keyword.Bluemix_notm}} app at the URL listed in the output of the push command from above.  Names you add from either app should appear in both when you refresh the browsers.
-
-Remember if you don't need your app live, stop it so you don't incur any unexpected charges.
-{: tip}  
-
-## Next Steps
-
-* [Tutorials](/docs/tutorials/index.html)
-* [Samples ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://ibm-cloud.github.io){: new_window}
-* [Architecture Center ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/garage/category/architectures){: new_window}
+* [Tutorials](link)
+* [Documentation](limnk)
+* [API Reference]link()
