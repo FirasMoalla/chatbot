@@ -71,7 +71,6 @@ First, choose your API endpoint
    ```
 bx api <API-endpoint>
    ```
-   {: pre}
 
 Replace the *API-endpoint* in the command with an API endpoint from the following list.
 
@@ -95,7 +94,6 @@ bx login
    ```
 bx app push
    ```
-   {: pre}
 
  This can take a minute. If there is an error in the deployment process you can use the command `cf logs <Your-App-Name> --recent` to troubleshoot.
 
