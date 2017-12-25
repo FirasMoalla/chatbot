@@ -1,8 +1,10 @@
 # Watson Chatbot Lab
 
-In this lab, we will build a an application for a Chatbot and deploy it to IBM Cloud. The is in two parts. First, we will deploy a PHP Chatbot application on IBM Cloud lab. Then, we will implement a chatbot dialog. is in two parts. To get started, follow this step-by-step lab.
+In this lab, we will build a an application for a Chatbot and deploy it on IBM Cloud. The lab is in two parts. First, we will deploy a Chatbot PHP application on IBM Cloud. Then, we will implement the Chatbot content. To get started, follow this step-by-step lab.
 
-By following the Watson Chatbot tutorial, you'll set up a development environment, deploy an app locally and on IBM Cloud, and integrate a conversation service for the Chabot in your app.
+By following the Watson Chatbot tutorial, you'll set up a development environment, deploy an application locally on IBM Cloud, and integrate a conversation service for the Chabot in your app.
+
+# Part 1: Build and Deploy a Chatbot application on IBM Cloud
 
 ## Before you begin
 
@@ -16,22 +18,20 @@ You'll need the following:
 
 ## Step 1 Deploy a PHP app
 
-Create and deploy a PHP app on IBM Cloud by following the steps below.
-
-Log into your IBM Cloud account and navigate to the Cloud Foundary Apps by clicking [here](https://console.bluemix.net/catalog/?taxonomyNavigation=cf-apps&category=cf-apps).
+Log into your IBM Cloud account and navigate to the `Cloud Foundary Apps` by clicking [here](https://console.bluemix.net/catalog/?taxonomyNavigation=cf-apps&category=cf-apps).
 
 Click on `PHP`.
 
-Write a unique application name in the `App name` field then click on `Create`
+Write a unique application name in the `App name` field then click on `Create` to deploy the PHP application on IBM Cloud.
 
 ## Step 2: Clone the sample app
 
-Now you're ready to start working with the app. Clone the repo and change the directory to where the sample app is located.
+Now you're ready to start working with the PHP application. Clone the following repo and change your directory to where the sample application is located.
   ```
-git clone https://github.com/IBM-Bluemix/get-started-php
+git clone https://github.com/IBM-Bluemix/chatbot-php
   ```
   ```
-cd get-started-php
+cd chatbot-php
   ```
 
 ## Step 2: Run the app locally
@@ -41,7 +41,7 @@ Install dependencies
 php composer.phar install
 ```
 
-Run the app
+Run the application on your local machine
   ```
 php -S localhost:8000
   ```
@@ -50,9 +50,9 @@ View your app at: http://localhost:8000
 
 ## Step 3: Prepare the app for deployment
 
-To deploy to {{site.data.keyword.Bluemix_notm}}, it can be helpful to set up a manifest.yml file. The manifest.yml includes basic information about your app, such as the name, how much memory to allocate for each instance and the route. We've provided a sample manifest.yml file in the `get-started-php` directory.
+To deploy to IBM Cloud, we can set up a manifest.yml file. The manifest.yml includes basic information about your application, such as the name, how much memory to allocate for each instance and the route. We've provided a sample manifest.yml file in the `php-chatbot` directory.
 
-Open the manifest.yml file, and change the `name` from `GetStartedPHP` to your PHP app name.
+Open the manifest.yml file, and change the `name` from `GetStartedPHP` to your PHP application name.
 
   ```
  applications:
@@ -61,11 +61,11 @@ Open the manifest.yml file, and change the `name` from `GetStartedPHP` to your P
    memory: 128M
   ```
 
-In this manifest.yml file, **random-route: true** generates a random route for your app to prevent your route from colliding with others.  If you choose to, you can replace **random-route: true** with **host: myChosenHostName**, supplying a host name of your choice. [Learn more...](/docs/manageapps/depapps.html#appmanifest)
+In this manifest.yml file, **random-route: true** generates a random route for your app to prevent your route from colliding with others. If you choose to, you can replace **random-route: true** with **host: myChosenHostName**, supplying a host name of your choice. [Learn more...](/docs/manageapps/depapps.html#appmanifest)
 
 ## Step 4: Deploy the app
 
-You can use the Cloud Foundry CLI to deploy apps.
+You can use the Cloud Foundry CLI to deploy applications.
 
 First, choose your API endpoint
    ```
@@ -90,14 +90,14 @@ bx login
    ```
 
 
- From within the *get-started-php* directory push your app to IBM Cloud
+ From within the *chabot-php* directory push your app to IBM Cloud
    ```
 bx app push
    ```
 
- This can take a minute. If there is an error in the deployment process you can use the command `cf logs <Your-App-Name> --recent` to troubleshoot.
+ This can take a minute. If there is an error in the deployment process you can use the command `bx logs <Your-App-Name> --recent` to troubleshoot.
 
- When deployment completes you should a message indicating that your app is running.  View your app at the URL listed in the output of the push command.  You can also issue the
+ When deployment completes you should see a message indicating that your app is running. View your app at the URL listed in the output of the push command. You can also issue the
   ```
 bx app list
   ```
@@ -118,6 +118,8 @@ Next, we'll add a Conversation service (Chatbot) to this application and set up 
 
 Environment variables enable you to separate deployment settings from your source code. For example, instead of hardcoding a database password, you can store this in an environment variable which you reference in your source code. [Learn more...](/docs/manageapps/depapps.html#app_env)
 
+
+# Part 2: Implement the Chatbot
 
 # Resources
 
