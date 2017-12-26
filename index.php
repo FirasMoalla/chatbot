@@ -53,10 +53,10 @@ $app->post('/api/message', function() {
 
 
 // init
-$username = "a338ef8d-b942-4eb7-a60f-685fabcb93e0";
-$password = "qHeUh1yahHBg";
+$username = "7dec3b76-0d0e-4f57-96e0-6b7c6e2450a1";
+$password = "kgAwqkljW5Mj";
+$workspace = "3c5b4a2a-0086-47c8-ba5a-bd15a9528685";
 $url = "https://gateway.watsonplatform.net/conversation/api";
-$workspace = "63f84444-7707-4a73-8525-f19492b4e832";
 $url = $url . "/v1/workspaces/" . $workspace . "/message?version=2016-09-20";
 
 
@@ -94,7 +94,7 @@ $url = $url . "/v1/workspaces/" . $workspace . "/message?version=2016-09-20";
     $tt = $ttt['text'];
     $t = $tt[0];
 
-    echo $t;
+    echo $result;
 });
 
 

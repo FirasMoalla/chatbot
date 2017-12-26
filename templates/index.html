@@ -63,19 +63,20 @@
 			        <div id="scrollingChat" class='scrollingChat'></div>
 			        <label for="textInputOne" class="inputOutline">
 			          <input id="textInputOne" class="base--input query-input"
-			            placeholder="Start typing..." type="text"
+			            placeholder="...أبدأ بالكتابه" type="text"
 			            onkeydown="userInputEvent(event, this)">
 			        </label>  
 			        <label for="textInput" class="inputOutline hide"> 
 			          <input id="textInput" class="base--input query-input" 
-			            placeholder="Start typing..." type="text" 
+			            placeholder="...أبدأ بالكتابه" type="text" 
 			            onkeydown="ConversationPanel.inputKeyDown(event, this)"> 
 			        </label>  
 			      </div>
 		    	</div>
+
+
 		    	<div class="fixed-column content-column">
 					<div class='payload-initial-message channel-header hide'>
-						<!--img class="" src="../images/cloudy.svg"-->
 			        	<div>TRY IT OUT IN OTHER CHANNEL</div>
 			        	<ul class="base--ul base--ul_no-bullets highlights">
 						  <li class="base--li">
@@ -107,48 +108,10 @@
 			      <div id="payload-request" class="hide"></div>
 			      <div id="payload-response" class="hide"></div>
 		    	</div>
+
+
 		  	</div>
 	    </div> 
-            <!-- testing -->
-            <!-- from user segment
-            <div class="segments load">
-              <div class="from-user top">
-                <div class="summary">
-                 &nbsp;    
-                </div>
-                <div class="message-inner">
-                  <p>hello</p>
-                </div>
-              </div>
-            </div> --> 
-            <!-- from watson segment
-            <div class="segments load">
-              <div class="from-watson latest top">
-                <div class="summary">
-                 &nbsp; asking for location   
-                </div>
-                <div class="message-inner">
-                  <p>hello blah <br></p>
-                </div>
-              </div>
-            </div> -->
-
-            <script>
-            var chatb1 = 
-            '<div class="segments load"> \
-              <div class="from-user top"> \
-                <div class="summary"> \
-                 &nbsp; \
-                </div> \
-                <div class="message-inner"> \
-                  <p>hello</p> \
-                </div> \
-              </div> \
-            </div>'
-            $('#scrollingChat').html($(chatb1));
-//            var mydiv = document.getElementById("scrollingChat");
-//            mydiv.appendChild(document.createTextNode(chatb1));
-            </script>
 
 	</section>
 
@@ -175,26 +138,9 @@
 	    </div>
   	</footer>
 
-<!--
-  <script src="public/js/common.js"></script>
-  <script src="public/js/api.js"></script>
-  <script src="public/js/conversation.js"></script>
-  <script src="public/js/payload.js"></script>
-  <script src="public/js/global.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
--->
+
   <script src="public/js/segment.js"></script>
 
-<!-- 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-59827755-20', 'auto');
-    ga('send', 'pageview');
-  </script>
--->
 </body>
 </html>

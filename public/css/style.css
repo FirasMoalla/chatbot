@@ -287,9 +287,10 @@ body {
   color: #323232;
   font-family: "Helvetica Neue", Helvetica, "Open Sans", Arial, "Lucida Grande", "Roboto", sans-serif;
   font-weight: 400;
-  line-height: 1.5; }
-  body * + * {
-    margin-top: 1rem; }
+  line-height: 1.5; 
+  max-height: 100vh;
+  }
+ 
 
 .base--h1 {
   font-size: 3.5em;
@@ -1000,28 +1001,6 @@ code[class*="language-"] ::selection {
   color: #a67f59;
   background: rgba(255, 255, 255, 0.5); }
 
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-  color: #07a; }
-
-.token.function {
-  color: #dd4a68; }
-
-.token.regex,
-.token.important,
-.token.variable {
-  color: #e90; }
-
-.token.important,
-.token.bold {
-  font-weight: bold; }
-
-.token.italic {
-  font-style: italic; }
-
-.token.entity {
-  cursor: help; }
 
 /* Custom prism rules for the Relay docs */
 .prism + .prism {
@@ -1892,7 +1871,7 @@ header h1.base--h1 a {
   -ms-flex: 1;
   -webkit-box-flex: 1;
           flex: 1;
-  overflow: auto;
+  /*overflow: auto;*/
   text-align: center; }
 
 .chat-column {
@@ -2056,11 +2035,15 @@ input:-moz-placeholder {
 ::-ms-clear {
   display: none; }
 
-input[type=text]:focus {
-  border-color: inherit; }
+input[type=text]:focus, input[type=text] {
+  border-color: inherit;
+  text-align: right;
+  float: right;
+   }
 
 .inputOutline {
   display: block;
+  text-align: right;;
   border-bottom: 0.0625rem solid #aeaeae;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -2158,4 +2141,8 @@ html {
   .payload-initial-message {
     padding: 3rem; } }
 
-#contentParent{height: 100vh;}
+
+
+#chat-column-holder{height: 100vh;}
+/*body{max-height: 500px}*/
+

@@ -64,9 +64,10 @@ function aCall(userInput){
    http.setRequestHeader('Content-type', 'application/json');
    http.onreadystatechange = function() {
      if (http.readyState === 4 && http.status === 200 && http.responseText) {
-       //Api.setResponsePayload(http.responseText);
-       console.log(http.responseText);
-       buildWatsonSegment(http.responseText);
+       var watsonResponse = (JSON.parse(http.responseText)).output.text[0];
+       console.log('respond: ' + watsonResponse);
+//       buildWatsonSegment(http.responseText);
+       buildWatsonSegment(watsonResponse);
      }
   };
   http.send(JSON.stringify({input: userInput}));
@@ -80,10 +81,7 @@ function aCall(userInput){
  //       //   This is done so that the "context" of the conversation is maintained in the view,
  //         //   even if the Watson message is long.
 function scrollToChatBottom() {
-  var scrollingChat = document.querySelector('#scrollingChat');
-  // Scroll to the latest message sent by the user
-  var scrollEl = scrollingChat.querySelector('.fromUser' + '.latest');
-  if (scrollEl) {
-    scrollingChat.scrollTop = scrollEl.offsetTop;
-  }
+  
+    var elem = document.getElementById('scrollingChat');
+    elem.scrollTop = elem.scrollHeight;
 }

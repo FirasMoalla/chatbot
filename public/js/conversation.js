@@ -195,13 +195,17 @@ var ConversationPanel = (function() {
   //   even if the Watson message is long.
   function scrollToChatBottom() {
     var scrollingChat = document.querySelector('#scrollingChat');
+    var elem = document.getElementById('scrollingChat');
+    
 
     // Scroll to the latest message sent by the user
     var scrollEl = scrollingChat.querySelector(settings.selectors.fromUser + settings.selectors.latest);
     if (scrollEl) {
       scrollingChat.scrollTop = scrollEl.offsetTop;
     }
-  }
+  
+    elem.scrollTop = elem.scrollHeight;
+}
 
   // Handles the submission of input
   function inputKeyDown(event, inputBox) {
