@@ -2157,3 +2157,5 @@ html {
     width: 100%; }
   .payload-initial-message {
     padding: 3rem; } }
+
+#contentParent{height: 100vh;}
