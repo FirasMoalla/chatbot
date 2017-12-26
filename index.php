@@ -23,12 +23,16 @@ require 'vendor/autoload.php';
 require_once('./Cloudant.php');
 $app = new \Slim\Slim();
 
-echo "ha";
-
 $app->get('/', function () {
   global $app;
   $app->render('index.html');
 });
+
+echo 'fix this';
+
+
+
+
 
 $app->get('/api/visitors', function () {
   global $app;
@@ -42,7 +46,55 @@ $app->get('/api/visitors', function () {
 
 $app->post('/api/message', function() {
   global $app;
-  echo 'message';
+
+  $usermsgj = json_decode($app->request()->getBody(), true);
+  $usermsg = $usermsgj['input'];
+  //echo 'message';
+
+
+// init
+$username = "a338ef8d-b942-4eb7-a60f-685fabcb93e0";
+$password = "qHeUh1yahHBg";
+$url = "https://gateway.watsonplatform.net/conversation/api";
+$workspace = "63f84444-7707-4a73-8525-f19492b4e832";
+$url = $url . "/v1/workspaces/" . $workspace . "/message?version=2016-09-20";
+
+
+    // http req - options
+    $options = array(
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POSTFIELDS => json_encode((['input' => ['text' => $usermsg] ])),
+        CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+        CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
+        CURLOPT_USERPWD => $username . ":" . $password,
+        CURLOPT_URL => $url
+    );
+    
+    // open req
+    $curl = curl_init();
+    // associate argus to req
+    curl_setopt_array($curl, $options);
+    // exe post()
+    $result = curl_exec($curl);
+    
+    // err
+    if (curl_errno($curl)) 
+        echo 'Error:' . curl_error($curl);
+    
+
+    // close req
+    curl_close($curl);
+
+    // print res 
+    //echo $result;
+
+    $watson = json_decode($result,true);
+    $ttt = $watson['output'];
+    $tt = $ttt['text'];
+    $t = $tt[0];
+
+    echo $t;
 });
 
 
