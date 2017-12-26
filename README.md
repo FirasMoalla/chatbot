@@ -20,21 +20,20 @@ You'll need the following:
 
 ## 1. Create a Chatbot service
 
-In what follows we will add a Watson Conversation service.
+In what follows we will create a Watson Conversation service on IBM Cloud.
 
 1. Log in to IBM Cloud in your Browser. Click on `Catalog` on the top right.
 3. Click on `Watson` on the left menu and then click on `Conversation`.
 4. Click on `Create`.
-5. From the left menu, click on `Service Credentials`.
-6. Click on `New credential` then click on `Add`.
-7. Click on `View credentials`. This is the credentials to access the Conversation services that you have just created.  Save the credentials for later use.
-
+5. Click on `Launch tool` from the Conversation services.
+6. Navigate the Conversation dashboard tab and click on `Create` to create a new workspace. Enter the name of the worksspace in the `Name` field and click on `Create`.
+7. From the left menu on the Conversation dashboard, click on `Deploy`. This will display the credentials to access the Conversation services and the workspace that you have just created. Save the `Username`, `Password` and `Workspace ID` somwehere safe for later use. 
 
 ## 2. Clone the sample PHP app
 
 Clone the following repo and change your directory to where the sample application is located.
   ```
-git clone https://github.com/FirasMoalla/chatbot
+git clone https://github.com/FirasMoalla/chatbot.git
 cd chatbot
   ```
 
