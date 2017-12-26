@@ -28,7 +28,7 @@ $app->get('/', function () {
   $app->render('index.html');
 });
 
-echo 'fix this';
+//echo 'fix this';
 
 
 
